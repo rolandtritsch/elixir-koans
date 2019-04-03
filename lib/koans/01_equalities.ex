@@ -10,23 +10,23 @@ defmodule Equalities do
 
   # Replace ___ with the answer to make the koan pass.
   koan "We shall contemplate truth by testing reality, via equality" do
-    assert true == true
+    assert true === true
   end
 
   koan "Not something is the opposite of it" do
-    assert !true == false
+    assert !true === false
   end
 
   koan "To understand reality, we must compare our expectations against reality" do
-    assert 2 == 1 + 1
+    assert 2 === 1 + 1
   end
 
   koan "Some things may appear different, but be the same" do
-    assert 1 == 2 / 2
+    assert 1.0 === 2 / 2
   end
 
   koan "Unless they actually are different" do
-    assert 3.2 != 0
+    assert 3.2 !== 0
   end
 
   koan "Some may be looking for bigger things" do
