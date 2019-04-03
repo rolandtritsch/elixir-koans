@@ -18,6 +18,10 @@ defmodule KeywordLists do
     values = Keyword.get_values(kw_list, :foo)
     assert values === ["bar", "baz"]
     assert List.last(values) === "baz"
+
+    kw_list_ = kw_list ++ [foo: "BAR"]
+    values_ = Keyword.get_values(kw_list_, :foo)
+    assert values_ === ["bar", "baz", "BAR"]
   end
 
   koan "Keyword lists are just special syntax for lists of two-element tuples" do
