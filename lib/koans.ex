@@ -46,8 +46,7 @@ defmodule Koans do
   end
 
   defmacro generate_test_method(name, number_of_args, body) do
-    answer_vars =
-      for id <- 1..number_of_args, do: Macro.var(String.to_atom("answer#{id}"), __MODULE__)
+    answer_vars = for id <- 1..number_of_args, do: Macro.var(String.to_atom("answer#{id}"), __MODULE__)
 
     multi_var = Blanks.replace(body, answer_vars)
 

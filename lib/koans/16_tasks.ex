@@ -26,7 +26,7 @@ defmodule Tasks do
       end)
 
     assert Task.yield(handle, 5) === nil
-    #assert Task.yield(handle, 15) === {:ok, 9}
+    # assert Task.yield(handle, 15) === {:ok, 9}
   end
 
   koan "Tasks can be aborted with shutdown" do

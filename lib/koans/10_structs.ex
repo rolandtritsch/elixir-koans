@@ -14,7 +14,7 @@ defmodule Structs do
 
   koan "Unless previously defined, fields begin as nil" do
     nobody = %Person{}
-    assert nobody.age === :nil
+    assert nobody.age === nil
   end
 
   koan "You can pass initial values to structs" do
@@ -50,7 +50,10 @@ defmodule Structs do
 
   koan "Use the update_in macro to modify a nested value" do
     airline = %Airline{plane: %Plane{maker: :boeing, passengers: 200}}
-    assert update_in(airline.plane.passengers, fn x -> x + 2 end) === %Airline{plane: %Plane{maker: :boeing, passengers: 202}}
+
+    assert update_in(airline.plane.passengers, fn x -> x + 2 end) === %Airline{
+             plane: %Plane{maker: :boeing, passengers: 202}
+           }
   end
 
   koan "Use the put_in macro with atoms to replace a nested value in a non-struct" do

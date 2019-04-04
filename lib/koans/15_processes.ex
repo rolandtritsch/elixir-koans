@@ -9,13 +9,13 @@ defmodule Processes do
 
   koan "You can ask a process to introduce itself" do
     information = Process.info(self())
-    #IO.inspect(information)
+    # IO.inspect(information)
 
     assert information[:status] === :running
   end
 
   koan "Processes are referenced by their process ID (pid)" do
-    #IO.inspect(self())
+    # IO.inspect(self())
     assert is_pid(self()) === true
   end
 

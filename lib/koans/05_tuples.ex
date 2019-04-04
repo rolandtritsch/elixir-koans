@@ -35,11 +35,13 @@ defmodule Tuples do
   end
 
   koan "Turn it into a list in case you need it" do
-    list = {:this, :can, :be, :a, :list}
-    |> Tuple.delete_at(1)
-    |> Tuple.delete_at(1)
-    |> Tuple.insert_at(1, :is)
-    |> Tuple.to_list
+    list =
+      {:this, :can, :be, :a, :list}
+      |> Tuple.delete_at(1)
+      |> Tuple.delete_at(1)
+      |> Tuple.insert_at(1, :is)
+      |> Tuple.to_list()
+
     assert list === [:this, :is, :a, :list]
   end
 end

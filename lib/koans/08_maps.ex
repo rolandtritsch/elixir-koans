@@ -43,17 +43,21 @@ defmodule Maps do
   end
 
   koan "Can merge maps" do
-    jon_snow = %{first_name: "Jon"}
-    |> Map.merge(%{last_name: "Snow"})
-    |> Map.merge(%{age: 27})
+    jon_snow =
+      %{first_name: "Jon"}
+      |> Map.merge(%{last_name: "Snow"})
+      |> Map.merge(%{age: 27})
+
     assert jon_snow === @person
   end
 
   koan "When merging, the last map wins" do
-    jon_snow = %{first_name: "John"}
-    |> Map.merge(%{last_name: "Snow"})
-    |> Map.merge(%{age: 27})
-    |> Map.merge(%{first_name: "Jon"})
+    jon_snow =
+      %{first_name: "John"}
+      |> Map.merge(%{last_name: "Snow"})
+      |> Map.merge(%{age: 27})
+      |> Map.merge(%{first_name: "Jon"})
+
     assert jon_snow === @person
   end
 
