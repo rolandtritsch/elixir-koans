@@ -35,4 +35,9 @@ defmodule Sigils do
   koan "The ~W sigil behaves to ~w as ~S behaves to ~s" do
     assert ~W(Hello 1#{1+1}3) === ["Hello", "1\#{1+1}3"]
   end
+
+  koan "The ~r sigil allows to define regular expressions" do
+    refute Regex.match?(~r/hello/, "HELLO")
+    assert Regex.match?(~r/hello/i, "HELLO")
+  end
 end
