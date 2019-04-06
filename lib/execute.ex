@@ -37,7 +37,6 @@ defmodule Execute do
   end
 
   defp expand(:ok, _), do: :ok
-
   defp expand(error, module) do
     {file, line} =
       System.stacktrace()

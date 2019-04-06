@@ -10,8 +10,7 @@ defmodule Koans.Mixfile do
   end
 
   def application do
-    [mod: {ElixirKoans, []},
-     applications: [:file_system, :logger]]
+    [mod: {ElixirKoans, []}, applications: [:file_system, :logger]]
   end
 
   defp deps do
