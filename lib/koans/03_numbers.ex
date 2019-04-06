@@ -5,11 +5,11 @@ defmodule Numbers do
   @intro "Why is the number six so scared? Because seven eight nine!\nWe should get to know numbers a bit more!"
 
   koan "Is an integer equal to its float equivalent?" do
-    assert 1 == 1.0 === true
+    assert 1 == 1.0
   end
 
   koan "Is an integer threequal to its float equivalent?" do
-    assert 1 === 1.0 === false
+    refute 1 === 1.0
   end
 
   koan "Revisit division with threequal" do
@@ -33,7 +33,7 @@ defmodule Numbers do
   end
 
   koan "Two ways to round, are they exactly the same?" do
-    assert Float.round(1.2) === round(1.2) === false
+    refute Float.round(1.2) === round(1.2)
     assert Float.round(1.2) === 1.0
     assert round(1.2) === 1
   end
@@ -43,11 +43,11 @@ defmodule Numbers do
   end
 
   koan "Are you odd?" do
-    assert Integer.is_odd(3) === true
+    assert Integer.is_odd(3)
   end
 
   koan "Actually you might be even" do
-    assert Integer.is_even(4) === true
+    assert Integer.is_even(4)
   end
 
   koan "Let's grab the individual digits in a list" do
@@ -124,13 +124,13 @@ defmodule Numbers do
   koan "Does my number exist in the range?" do
     range = Range.new(1, 10)
 
-    assert 4 in range === true
-    assert 10 in range === true
-    assert 0 in range === false
+    assert 4 in range
+    assert 10 in range
+    refute 0 in range
   end
 
   koan "Is this a range?" do
-    assert Range.range?(1..10) === true
-    assert Range.range?(0) === false
+    assert Range.range?(1..10)
+    refute Range.range?(0)
   end
 end

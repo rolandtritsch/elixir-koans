@@ -40,6 +40,6 @@ defmodule Agents do
 
     Agent.stop(__MODULE__)
 
-    assert Process.alive?(pid) === false
+    refute Process.alive?(pid)
   end
 end

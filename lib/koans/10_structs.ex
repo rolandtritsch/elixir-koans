@@ -14,7 +14,7 @@ defmodule Structs do
 
   koan "Unless previously defined, fields begin as nil" do
     nobody = %Person{}
-    assert nobody.age === nil
+    refute nobody.age
   end
 
   koan "You can pass initial values to structs" do

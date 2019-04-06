@@ -39,7 +39,7 @@ defmodule Maps do
 
   koan "Can remove pairs by key" do
     without_age = Map.delete(@person, :age)
-    assert Map.has_key?(without_age, :age) === false
+    refute Map.has_key?(without_age, :age)
   end
 
   koan "Can merge maps" do

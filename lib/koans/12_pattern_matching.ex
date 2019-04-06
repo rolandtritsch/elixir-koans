@@ -41,7 +41,7 @@ defmodule PatternMatching do
 
   koan "Lists must match exactly" do
     assert_raise MatchError, fn ->
-      [a, b] = [1, 2, 3]
+      [_a, _b] = [1, 2, 3]
     end
   end
 
@@ -111,7 +111,7 @@ defmodule PatternMatching do
 
   koan "... or onto the type of the struct itself" do
     assert plane?(%Plane{passengers: 417, maker: :boeing})
-    assert plane?(%Animal{}) === false
+    refute plane?(%Animal{})
   end
 
   koan "Structs will even match with a regular map" do
@@ -126,6 +126,7 @@ defmodule PatternMatching do
 
   koan "A variable can be rebound" do
     a = 1
+    assert a === 1
     a = 2
     assert a === 2
   end

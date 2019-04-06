@@ -25,7 +25,7 @@ defmodule Tasks do
         3 * 3
       end)
 
-    assert Task.yield(handle, 5) === nil
+    refute Task.yield(handle, 5)
     # assert Task.yield(handle, 15) === {:ok, 9}
   end
 
@@ -39,7 +39,7 @@ defmodule Tasks do
     %Task{pid: pid} = handle
     Task.shutdown(handle)
 
-    assert Process.alive?(pid) === false
+    refute Process.alive?(pid)
   end
 
   koan "Shutdown will give you an answer if it has it" do

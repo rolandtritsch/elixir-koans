@@ -89,7 +89,7 @@ defmodule GenServers do
 
   koan "Servers that are created and initialized successfully returns a tuple that holds the PID of the server" do
     {:ok, pid} = GenServer.start_link(Laptop, "3kr3t!")
-    assert is_pid(pid) === true
+    assert is_pid(pid)
   end
 
   koan "When starting a GenServer you can set it's initial state" do

@@ -14,21 +14,21 @@ defmodule Enums do
   def less_than_five?(n), do: n < 5
 
   koan "Elements can have a lot in common" do
-    assert Enum.all?([1, 2, 3], &less_than_five?/1) === true
-    assert Enum.all?([4, 6, 8], &less_than_five?/1) === false
+    assert Enum.all?([1, 2, 3], &less_than_five?/1)
+    refute Enum.all?([4, 6, 8], &less_than_five?/1)
   end
 
   def even?(n), do: rem(n, 2) == 0
 
   koan "Sometimes you just want to know if there are any elements fulfilling a condition" do
-    assert Enum.any?([1, 2, 3], &even?/1) === true
-    assert Enum.any?([1, 3, 5], &even?/1) === false
+    assert Enum.any?([1, 2, 3], &even?/1)
+    refute Enum.any?([1, 3, 5], &even?/1)
   end
 
   koan "Sometimes you just want to know if an element is part of the party" do
     input = [1, 2, 3]
-    assert Enum.member?(input, 1) === true
-    assert Enum.member?(input, 30) === false
+    assert Enum.member?(input, 1)
+    refute Enum.member?(input, 30)
   end
 
   def multiply_by_ten(n), do: 10 * n
@@ -74,7 +74,7 @@ defmodule Enums do
   def divisible_by_five?(n), do: rem(n, 5) == 0
 
   koan "...but you don't quite find it..." do
-    assert Enum.find([1, 2, 3], &divisible_by_five?/1) === nil
+    refute Enum.find([1, 2, 3], &divisible_by_five?/1)
   end
 
   koan "...you can settle for a consolation prize" do

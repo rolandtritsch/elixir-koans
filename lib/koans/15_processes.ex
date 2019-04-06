@@ -16,7 +16,7 @@ defmodule Processes do
 
   koan "Processes are referenced by their process ID (pid)" do
     # IO.inspect(self())
-    assert is_pid(self()) === true
+    assert is_pid(self())
   end
 
   koan "New processes are spawned functions" do
@@ -26,7 +26,7 @@ defmodule Processes do
         end
       end)
 
-    assert is_pid(value) === true
+    assert is_pid(value)
     assert value !== self()
   end
 
@@ -39,8 +39,8 @@ defmodule Processes do
     # see if they are still alive!
     :timer.sleep(50)
 
-    assert Process.alive?(fast_process) === false
-    assert Process.alive?(slow_process) === true
+    refute Process.alive?(fast_process)
+    assert Process.alive?(slow_process)
   end
 
   koan "Processes can send and receive messages" do
@@ -59,7 +59,7 @@ defmodule Processes do
 
     pid = spawn(wait_forever)
 
-    assert Process.alive?(pid) === true
+    assert Process.alive?(pid)
   end
 
   koan "Received messages are queued, first in first out" do
@@ -107,7 +107,7 @@ defmodule Processes do
         send(caller, value)
         state(value)
 
-      {caller, :set, new_value} ->
+      {_caller, :set, new_value} ->
         state(new_value)
     end
   end

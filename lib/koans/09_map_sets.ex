@@ -26,37 +26,37 @@ defmodule MapSets do
     # http://stackoverflow.com/a/40408469
 
     # What do you think this answer to this assertion is?
-    assert sorted?(@set) === true
-    assert sorted?(MapSet.new(1..32)) === true
-    assert sorted?(MapSet.new(1..33)) === false
+    assert sorted?(@set)
+    assert sorted?(MapSet.new(1..32))
+    refute sorted?(MapSet.new(1..33))
   end
 
   koan "Does this value exist in the map set?" do
-    assert MapSet.member?(@set, 3) === true
-    assert MapSet.member?(@set, 99) !== true
+    assert MapSet.member?(@set, 3)
+    refute MapSet.member?(@set, 99)
   end
 
   koan "I am merely another collection, but you can perform some operations on me" do
     three_times = MapSet.new(@set, fn x -> 3 * x end)
-    assert MapSet.member?(three_times, 15) === true
-    assert MapSet.member?(three_times, 1) === false
+    assert MapSet.member?(three_times, 15)
+    refute MapSet.member?(three_times, 1)
   end
 
   koan "Add this value into a map set" do
     with_six = MapSet.put(@set, 6)
-    assert MapSet.member?(with_six, 6) === true
+    assert MapSet.member?(with_six, 6)
   end
 
   koan "Delete this value from the map set" do
     without_one = MapSet.delete(@set, 1)
-    assert MapSet.member?(without_one, 1) === false
+    refute MapSet.member?(without_one, 1)
   end
 
   koan "Are these maps twins?" do
     new_set = MapSet.new([1, 2, 3])
-    assert MapSet.equal?(@set, new_set) === false
+    refute MapSet.equal?(@set, new_set)
     new_set_ = MapSet.new([4, 5] ++ [1, 2, 3])
-    assert MapSet.equal?(@set, new_set_) === true
+    assert MapSet.equal?(@set, new_set_)
   end
 
   koan "I want only the common values in both sets" do
